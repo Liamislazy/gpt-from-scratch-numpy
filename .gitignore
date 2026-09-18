@@ -1,0 +1,51 @@
+# --- Python bytecode & caches ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Virtual environments ---
+.venv/
+.venv.bak/
+venv/
+env/
+ENV/
+
+# --- Packaging / build artifacts ---
+build/
+dist/
+*.egg
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Testing, linting & type-checking caches ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+# --- Model checkpoints, training runs & data dumps ---
+*.npy
+*.npz
+*.bin
+*.pt
+*.pth
+checkpoints/
+runs/
+logs/
+*.log
+data/raw/
+
+# --- Editors & OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
