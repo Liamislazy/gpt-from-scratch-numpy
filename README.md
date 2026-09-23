@@ -6,11 +6,11 @@ This project is inspired by Green Code's 'Coding ChatGPT from Scratch' series an
 This is the structure of this project:
 
 ```text
-gpt2_numpy/
+gpt-from-scratch-numpy/
 ├── src/
 │   ├── __init__.py
-│   ├── layers.py        # Custom Linear, LayerNorm, Embedding, activations
-│   ├── model.py         # Multi-Head Attention, Transformer Block, GPT2 assembly
+│   ├── layers.py        # Custom Linear, LayerNorm, Dropout, activations, positional encoding
+│   ├── models.py        # Attention, FeedForward, Transformer Block, GPT-2 assembly
 │   ├── optimizer.py     # AdamW optimizer & parameter updates in NumPy
 │   └── utils.py         # BPE tokenizer wrapper, dataloader, batching
 ├── train.py             # Dedicated script for running training loops
@@ -18,3 +18,4 @@ gpt2_numpy/
 ├── explore.ipynb        # Notebook for sanity checks & visual debugging
 └── requirements.txt
 ```
+

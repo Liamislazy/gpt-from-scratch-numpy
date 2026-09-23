@@ -1,10 +1,6 @@
 import numpy as np
-from layers import Linear
+from src.layers import Linear, Dropout, GELU, softmax, derived_GELU
 
-
-def softmax(x: np.ndarray) -> np.ndarray:
-    exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True))
-    return exp_x / np.sum(exp_x, axis=-1, keepdims=True)
 
 class SingleHeadAttention:
     def __init__(self, d_model: int, d_k: int):
@@ -28,10 +24,11 @@ class SingleHeadAttention:
 
         return output
 
+
 class MultiHeadAttention:
     def __init__(self, d_model: int, num_heads: int):
         self.d_k = d_model // num_heads
-        
+
         # 1. Initialize self.heads (list of SingleHeadAttention instances)
         self.heads = [SingleHeadAttention(d_model, self.d_k) for _ in range(num_heads)]
         # 2. Initialize self.W_o
@@ -48,3 +45,69 @@ class MultiHeadAttention:
         output = self.W_o.forward(concat)
 
         return output
+
+
+class FeedForward:
+    def __init__(self, d_model, d_ff, dropout: float = 0.1):
+        self.linear1 = Linear(d_model, d_ff)
+        self.linear2 = Linear(d_ff, d_model)
+        self.dropout = Dropout(dropout)
+        self.hidden = None
+
+    def forward(self, X: np.ndarray, training: bool = True) -> np.ndarray:
+        self.hidden = self.linear1.forward(X)
+        out = self.linear2.forward(GELU(self.hidden))
+        return self.dropout.forward(out, training=training)
+
+    def backward(self, grad: np.ndarray) -> np.ndarray:
+        grad = self.dropout.backward(grad)
+        _, _, grad = self.linear2.backward(grad)
+        grad = grad * derived_GELU(self.hidden)
+        _, _, grad = self.linear1.backward(grad)
+        return grad
+
+class Parameter:
+    def __init__(self, data: np.ndarray):
+        self.data = np.array(data, dtype=np.float32)
+        self.grad = np.zeros_like(self.data)
+
+    def zero_grad(self):
+        self.grad.fill(0.0)
+
+class Module:
+    def __call__(self, *args, **kwargs):
+        return self.forward(*args, **kwargs)
+
+    def forward(self, *args, **kwargs):
+        raise NotImplementedError
+
+    def backward(self, *args, **kwargs):
+        raise NotImplementedError
+
+    def parameters(self):
+        params = []
+        for attr in self.__dict__.values():
+            if isinstance(attr, Parameter):
+                params.append(attr)
+            elif isinstance(attr, Module):
+                params.extend(attr.parameters())
+            elif isinstance(attr, (list, tuple)):
+                for item in attr:
+                    if isinstance(item, Parameter):
+                        params.append(item)
+                    elif isinstance(item, Module):
+                        params.extend(item.parameters())
+        return params
+
+    def zero_grad(self):
+        for p in self.parameters():
+            p.zero_grad()
+
+    
+class Block(Module):
+    def __init__(self):
+        pass
+    def forward(self):
+        pass
+    def backward(self):
+        pass
