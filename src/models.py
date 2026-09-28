@@ -106,7 +106,7 @@ class Module:
     
 class Block(Module):
     def __init__(self):
-        o
+        pass
     def forward(self):
         
         pass
