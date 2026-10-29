@@ -1,0 +1,160 @@
+{
+  "repo_path": "D:\\AI_project\\Project\\gpt-from-scratch-numpy",
+  "repo_label": "gpt-from-scratch-numpy",
+  "generated_at": "2026-10-29T01:49:55Z",
+  "duration": "182.6306ms",
+  "extractors": [
+    "manifests",
+    "mdintent",
+    "python"
+  ],
+  "explainers": [
+    "cycles",
+    "layers",
+    "crossrepo",
+    "coverage",
+    "unused-routes",
+    "domain",
+    "query-loops",
+    "dead-methods",
+    "entry-points",
+    "messaging-coverage",
+    "god-class",
+    "hotspots",
+    "dependency-depth",
+    "exported-surface",
+    "complexity-outliers",
+    "intent",
+    "constraints",
+    "vendored-candidates",
+    "import-closure",
+    "package-metrics",
+    "dead-code",
+    "performance"
+  ],
+  "renderers": [
+    "llm_context"
+  ],
+  "file_hashes": [
+    {
+      "path": "src/optimizer.py",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mod_time": "2026-09-14T11:07:15Z"
+    },
+    {
+      "path": "src/utils.py",
+      "hash": "be77fa3776034671a56c62686fc98e4219eb49f6cd17fa08c1b97745078ab6f1",
+      "mod_time": "2026-10-29T01:45:17Z"
+    },
+    {
+      "path": "train.py",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mod_time": "2026-09-18T17:59:10Z"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "hash": "839b58846923e209f1da50e7d5cb74994842de523f180d6a71cb99bf32661e49",
+      "mod_time": "2026-09-14T09:55:20Z"
+    },
+    {
+      "path": "README.md",
+      "hash": "bc7cf7398eb495c7511865dbd40124a518fc02dbdd1e5fbe4860961e5b140240",
+      "mod_time": "2026-09-21T08:08:28Z"
+    },
+    {
+      "path": "explore.ipynb",
+      "hash": "7a4c5d480044247ee948d082fe37db75fd9a53ff8cfdfac2db9caa74f8e52a9f",
+      "mod_time": "2026-09-21T07:33:28Z"
+    },
+    {
+      "path": "generate.py",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mod_time": "2026-09-18T17:59:20Z"
+    },
+    {
+      "path": "requirements.txt",
+      "hash": "48288e47e1d80482ca4731d28a8510d0a99a8e74b42c1d9131e495d163ce347d",
+      "mod_time": "2026-09-21T07:33:26Z"
+    },
+    {
+      "path": "src/__init__.py",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mod_time": "2026-09-21T03:28:15Z"
+    },
+    {
+      "path": "src/models.py",
+      "hash": "7c0cad0a0580f1abc8be2c31398f773e9af4923ecd4602f0510486e1169650f9",
+      "mod_time": "2026-09-28T17:10:06Z"
+    },
+    {
+      "path": "testing.py",
+      "hash": "c023931cdc51e397bae635e85cdf4e09413e4256800c82a932e7c8e341975238",
+      "mod_time": "2026-09-21T03:29:34Z"
+    },
+    {
+      "path": ".gitignore",
+      "hash": "c1ac055277870d4b06a6e3811c3a6bfd170b89a34389eeb523deecc58daa1e47",
+      "mod_time": "2026-09-21T07:33:24Z"
+    },
+    {
+      "path": "src/layers.py",
+      "hash": "56863e0d919a6e810a39d3fe2c44df3f71daf14e133cae18c55c0f9e910ba6fb",
+      "mod_time": "2026-09-23T11:20:03Z"
+    }
+  ],
+  "fact_count": 56,
+  "insight_count": 8,
+  "enola_version": "0.4.21",
+  "snapshot_id": "sha256:f5d94b12728af860b5ee4a73679c3db9d953c51f6b51576e3bed5ec23927bb53",
+  "git": {
+    "ref": "main",
+    "commit": "19031400b357176ce6d607eecbaa2f40c1a71515",
+    "dirty": true,
+    "remote": "github.com/liamislazy/gpt-from-scratch-numpy"
+  },
+  "config_hash": "sha256:73d78ea79f51e19979d4c7d00bd9463ae684ebcb909116abad86675323c32c05",
+  "extractor_version": "v270",
+  "files_seen": 13,
+  "files_parsed": 6,
+  "source_bytes": 11006,
+  "dirs_skipped": 3,
+  "skipped_sample": [
+    ".git/ (glob: **/.git/**)",
+    ".venv/ (glob: **/.venv/**)",
+    "src/__pycache__/ (glob: **/__pycache__/**)"
+  ],
+  "ignore_glob_hash": "sha256:7523cc6397a498e151125a682d28fbf6df20c6f51f6dfaf18fd8f5239a20d2d8",
+  "heuristic_insights": 8,
+  "census": {
+    "files_walked": 13,
+    "parsed": 6,
+    "excluded_by_ignore": 0,
+    "excluded_by_kind": 3,
+    "excluded_kinds": {
+      ".gitignore": 1,
+      ".ipynb": 1,
+      ".json": 1
+    },
+    "skipped_with_cause": 4,
+    "top_skip_causes": [
+      {
+        "cause": "claimed by python, no facts emitted",
+        "count": 4
+      }
+    ]
+  },
+  "output_hashes": {
+    "facts.jsonl": "sha256:e01f1a850e25ac0dbb72fb3149bf67e03c54e0a3962c9e0e6b4a010590def4d3",
+    "insights.json": "sha256:46e63b2a02fd013177de9b6752c9f0226a4cdf5359f8feee27878b249e8c7dc5",
+    "llm_context.md": "sha256:5fa11aa4353aed004b72a14196cb0098fccab975029cf86e7cbd14617953de1e"
+  },
+  "unseen": {
+    "files_excluded_by_ignore": 0,
+    "dirs_excluded_by_ignore": 3,
+    "outside_graph": {
+      "imports": 6
+    },
+    "dead_exemptions": 0,
+    "dynamic_feature_classes": 0
+  }
+}

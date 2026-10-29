@@ -1,0 +1,87 @@
+{
+  "snapshot_id": "sha256:f5d94b12728af860b5ee4a73679c3db9d953c51f6b51576e3bed5ec23927bb53",
+  "format_version": 1,
+  "enola_version": "0.4.21",
+  "extractor_version": "v270",
+  "generated_at": "2026-10-29T01:49:55Z",
+  "duration": "182.6306ms",
+  "repo_path": "D:\\AI_project\\Project\\gpt-from-scratch-numpy",
+  "git": {
+    "ref": "main",
+    "commit": "19031400b357176ce6d607eecbaa2f40c1a71515",
+    "dirty": true,
+    "remote": "github.com/liamislazy/gpt-from-scratch-numpy"
+  },
+  "extractors": [
+    "manifests",
+    "mdintent",
+    "python"
+  ],
+  "explainers": [
+    "cycles",
+    "layers",
+    "crossrepo",
+    "coverage",
+    "unused-routes",
+    "domain",
+    "query-loops",
+    "dead-methods",
+    "entry-points",
+    "messaging-coverage",
+    "god-class",
+    "hotspots",
+    "dependency-depth",
+    "exported-surface",
+    "complexity-outliers",
+    "intent",
+    "constraints",
+    "vendored-candidates",
+    "import-closure",
+    "package-metrics",
+    "dead-code",
+    "performance"
+  ],
+  "renderers": [
+    "llm_context"
+  ],
+  "config_hash": "sha256:73d78ea79f51e19979d4c7d00bd9463ae684ebcb909116abad86675323c32c05",
+  "ignore_glob_hash": "sha256:7523cc6397a498e151125a682d28fbf6df20c6f51f6dfaf18fd8f5239a20d2d8",
+  "output_hashes": {
+    "facts.jsonl": "sha256:e01f1a850e25ac0dbb72fb3149bf67e03c54e0a3962c9e0e6b4a010590def4d3",
+    "insights.json": "sha256:46e63b2a02fd013177de9b6752c9f0226a4cdf5359f8feee27878b249e8c7dc5",
+    "llm_context.md": "sha256:5fa11aa4353aed004b72a14196cb0098fccab975029cf86e7cbd14617953de1e"
+  },
+  "fact_count": 56,
+  "insight_count": 8,
+  "quality": {
+    "files_seen": 13,
+    "files_parsed": 6,
+    "files_skipped": 0,
+    "dirs_skipped": 3,
+    "skipped_sample": [
+      ".git/ (glob: **/.git/**)",
+      ".venv/ (glob: **/.venv/**)",
+      "src/__pycache__/ (glob: **/__pycache__/**)"
+    ],
+    "parse_errors": 0,
+    "heuristic_insights": 8,
+    "census": {
+      "files_walked": 13,
+      "parsed": 6,
+      "excluded_by_ignore": 0,
+      "excluded_by_kind": 3,
+      "excluded_kinds": {
+        ".gitignore": 1,
+        ".ipynb": 1,
+        ".json": 1
+      },
+      "skipped_with_cause": 4,
+      "top_skip_causes": [
+        {
+          "cause": "claimed by python, no facts emitted",
+          "count": 4
+        }
+      ]
+    }
+  }
+}

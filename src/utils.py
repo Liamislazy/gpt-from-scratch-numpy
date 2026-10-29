@@ -1,11 +1,13 @@
 import re
 from collections import Counter
+'''
 def normalizer(texts):
     if isinstance(texts, str):
         texts = [texts]
 
     normalized = []
     for text in texts:
+        # not using this yet
         # 1. HTML tag removal
         text = re.sub(r'<[^>]+>', '', text)
 
@@ -31,6 +33,9 @@ def normalizer(texts):
         normalized.append(text)
 
     return normalized
+
+'''
+
 def pre_tokenizer(text):
     # Convert lowercase
     if isinstance(text, list):
@@ -48,5 +53,44 @@ def pre_tokenizer(text):
 
     return vocab
 
+def merge_tuple(word, pair):
+    merged_tuple = []
+    word_length = len(word)
+    i = 0
+    while i < word_length:
+        if (
+            i < word_length - 1 and
+            word[i] == pair[0] and
+            word[i + 1] == pair[1]
+        ):
+            merged_tuple.append(pair[0] + pair[1])
+            i += 2
+        else:
+            merged_tuple.append(word[i])
+            i += 1
+    return tuple(merged_tuple)
+
+def get_pairs(corpus):
+    pairs = {}
+    for word, freq in corpus.item():
+        for i in range(len(word)-1):
+            pair = (word[i], word[i + 1])
+            pairs[pair] += freq
+    return pairs
+
 def byte_pair_encoding(corpus, num_merges):
-    pass
+    merges = {}
+
+    for _ in range(num_merges):
+        pairs = get_pairs(corpus)
+        if not pairs:
+            break
+
+        best_pair = max(pairs, key=pairs.get)
+        merges[best_pair] = pairs[best_pair]
+
+        for item in corpus:
+            item[0] = merge_tuple(item[0], best_pair)
+
+    return merges
+
