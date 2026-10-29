@@ -71,8 +71,8 @@ def merge_tuple(word, pair):
     return tuple(merged_tuple)
 
 def get_pairs(corpus):
-    pairs = {}
-    for word, freq in corpus.item():
+    pairs = Counter()
+    for word, freq in corpus.items():
         for i in range(len(word)-1):
             pair = (word[i], word[i + 1])
             pairs[pair] += freq
@@ -86,11 +86,17 @@ def byte_pair_encoding(corpus, num_merges):
         if not pairs:
             break
 
-        best_pair = max(pairs, key=pairs.get)
+        best_pair = pairs.most_common(1)[0][0]
         merges[best_pair] = pairs[best_pair]
 
-        for item in corpus:
-            item[0] = merge_tuple(item[0], best_pair)
+        new_corpus = {}
+
+        for word, freq in corpus.items():
+            new_word = merge_tuple(word, best_pair)
+            new_corpus[new_word] = freq
+
+        corpus.clear()
+        corpus.update(new_corpus)
 
     return merges
 
